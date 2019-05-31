@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
+import Characters from "./components/characters"
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      currentChar: null,
     };
+  }
+
+  showCurrentChar = function(name){
+    const currentChar = this.state.starwarsChars.find(char => char.name === name);
+    this.setState({currentChar: currentChar});
   }
 
   componentDidMount() {
@@ -29,10 +36,15 @@ class App extends Component {
       });
   };
 
+  
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <div>
+          <Characters chars={this.state.starwarsChars} showCurrentChar={this.showCurrentChar} />
+        </div>
       </div>
     );
   }
