@@ -8,7 +8,7 @@ function Characters(props) {
                 return <ListItem 
                     char ={char}
                     key={index}
-                    showCurrentChar={props.showCurrentChar} />
+                     />
             })}
         
       </div>
